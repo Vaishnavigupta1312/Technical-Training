@@ -13,7 +13,7 @@ int main(){
 
 
     // to access values in vector #1
-    v1[0]=5;
+    v1[0]=21;
     cout<<v1[0]<<endl;
 
     // to access values in vector #2
@@ -26,17 +26,58 @@ int main(){
         cout<<v1[i]<<" ";
     }
     cout<<endl;
-    // using range
+    // using range (map)
+    for(int x : v1){                                //we are copying the value and not accessing the direct values
+        cout<<x<<" ";
+    }
+    cout<<endl;
+
+    for(int &x : v1){                                //we can use & for accessing the direct values
+        x++;
+        // cout<<x<<" ";
+    }
+    for(int &x : v1){   
+                                
+        cout<<x<<" ";
+    }
+    cout<<endl;
+
+    // using iterators - begin(), end(), rbegin(), rend()
+    vector<int> :: iterator it = v1.begin();
+    cout<<*it<<" "<<&it<<endl;                      //4 0x570ddff8b8 - (*-dereference operator)*it returns value stored at location pointed by it, like a pointer and (address-of operator) &it shows the address of the iterator, iterators are similar to pointers.......alone it is not a printable datatype so if printed will return error.
+    it++;  
+    // it+=1;                                         //now it points the second location
+    cout<<*it<<" "<<&it<<endl;
+
+    // for(vector<int>:: iterator it= v1.begin(); it!=v1.end();it++){
+    for(auto it= v1.begin();it!=v1.end();it++){      //auto defines the datatype of variable at run time by itself
+        cout<<*it<<" ";
+    }
+    cout<<endl;
 
 
-    // using iterators
 
     // v1={4,22,33,44,10}
     cout<<v1.front()<<" "<<v1.back()<<endl;         //front points to the first element=4 and back=10 points to the last element
 
+    cout<<v1.size()<<endl;                          //gives the size of vector, 5
+    v1.pop_back();                                  //removes the last element , pops 10
+    cout<<v1[4]<<endl;                              //size became 4 after popping last element
+    
     cout<<v1.size()<<endl;
-    v1.pop_back();
-    cout<<v1[4]<<endl;
-    cout<<v1.size()<<endl;
+    for (int i=0; i<v1.size();i++){
+        cout<<v1[i]<<" ";                           //for checking what happened on using the pop_back()
+    }
+    cout<<endl;
+
+    v1.clear();                                     //clears all the data at once
+    cout<<v1.size()<<endl;                          //size becomes 0
+    for (int i=0; i<v1.size();i++){
+        cout<<v1[i]<<" ";                           //prints nothing
+    }
+    cout<<endl;
+
+
+
     
 }
