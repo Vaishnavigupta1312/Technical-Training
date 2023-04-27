@@ -26,7 +26,7 @@ int main(){
         cout<<v1[i]<<" ";
     }
     cout<<endl;
-    // using range (map)
+    // (ii)using range (map)
     for(int x : v1){                                //we are copying the value and not accessing the direct values
         cout<<x<<" ";
     }
@@ -42,7 +42,7 @@ int main(){
     }
     cout<<endl;
 
-    // using iterators - begin(), end(), rbegin(), rend()
+    // (iii)using iterators - begin(), end(), rbegin(), rend()
     vector<int> :: iterator it = v1.begin();
     cout<<*it<<" "<<&it<<endl;                      //4 0x570ddff8b8 - (*-dereference operator)*it returns value stored at location pointed by it, like a pointer and (address-of operator) &it shows the address of the iterator, iterators are similar to pointers.......alone it is not a printable datatype so if printed will return error.
     it++;  
